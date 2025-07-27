@@ -102,6 +102,11 @@ return packer.startup(function(use)
     end
   }
 
+  -- treesitter
+  use {
+    "nvim-treesitter/nvim-treesitter",
+  }
+
   -- managing and installing lsp server
   use {
     'williamboman/mason.nvim',
