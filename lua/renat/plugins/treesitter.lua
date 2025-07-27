@@ -14,7 +14,7 @@ treesitter.setup({
   auto_install = true,       -- auto-install missing parsers on buffer open
   highlight = {
     enable = true,           -- enable Tree-sitter-based syntax highlighting
-    additional_vim_regex_highlighting = false,
+    additional_vim_regex_highlighting = true,
   },
   indent = {
     enable = true,           -- enable better indentation
