@@ -47,6 +47,9 @@ keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>") -- find string in 
 keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>") -- find string under cursor in current working directory
 keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>") -- list open buffers in current neovim instance
 keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>") -- list available help tags
+keymap.set("n", "<leader>fp", function()
+  require("telescope.builtin").grep_string({ search = vim.fn.getreg('+') })
+end, { desc = "Search last yanked text" })
 
 -- harpoon
 local ok, harpoon = pcall(require, "harpoon")
@@ -64,7 +67,7 @@ keymap.set("n", "<leader>4", function() harpoon:list():select(4) end, { desc = "
 keymap.set("n", "<leader>u", ":UndotreeToggle | UndotreeFocus<CR>")
 
 -- fugitive
-keymap.set("n", "<leader>gs", ":Git<CR>")           -- Git status
-keymap.set("n", "<leader>gc", ":Git commit<CR>")    -- Git commit
+keymap.set("n", "<leader>gs", ":vertical Git<CR>")           -- Git status
+keymap.set("n", "<leader>gc", ":vertical Git commit<CR>")    -- Git commit
 keymap.set("n", "<leader>gd", ":Gvdiffsplit<CR>")    -- Git diff in split
-keymap.set("n", "<leader>gb", ":Git blame<CR>")     -- Git blame
+keymap.set("n", "<leader>gb", ":vertical Git branch | vertical resize 50<CR>")     -- Git blame

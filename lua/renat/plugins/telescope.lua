@@ -35,6 +35,12 @@ telescope.setup({
       },
       n = {
         ["q"] = require("telescope.actions").close,      -- Close with q in normal mode
+        ["p"] = function()
+          local picker = require("telescope.actions").get_current_picker(vim.fn.bufnr())
+          local text = vim.fn.getreg('"') -- last yank
+          local prompt = picker:_get_prompt()
+          picker:set_prompt(prompt .. text)
+        end,
       },
     }
   },

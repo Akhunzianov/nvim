@@ -9,12 +9,15 @@ local lualine_16color = require("lualine.themes.base16")
 -- configure lualine with modified theme
 lualine.setup({
   options = {
-    theme = lualine_16color,
+    theme = "auto",
+    component_separators = "",
   },
   sections = {
-    lualine_c = {
+    lualine_c = {},
+    lualine_y = {
       { 'filename', path = 1 } -- relative path
       -- or path = 2 for full absolute path
     },
+    lualine_x = {},
   },
 })

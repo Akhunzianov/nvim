@@ -68,13 +68,6 @@ return packer.startup(function(use)
   use("saadparwaiz1/cmp_luasnip") -- for autocompletion
   use("rafamadriz/friendly-snippets") -- useful snippets
 
-  -- indent blankline 
-  use {
-    "lukas-reineke/indent-blankline.nvim",
-    main = "ibl",
-    opts = {},
-  }
-
   -- gitsigns
   use {
     "lewis6991/gitsigns.nvim",
@@ -129,7 +122,7 @@ return packer.startup(function(use)
   use("neovim/nvim-lspconfig")
   use("hrsh7th/cmp-nvim-lsp")
   use {
-    "glepnir/lspsaga.nvim",
+    "nvimdev/lspsaga.nvim",
     branch = "main",
     requires = { "nvim-tree/nvim-web-devicons" },
     -- lazy-load on any LSP attach (so your lspconfig has run and your setup is in place)
@@ -140,7 +133,7 @@ return packer.startup(function(use)
     config = function()
       require("lspsaga").setup({
         move_in_saga = { prev = "<C-k>", next = "<C-j>" },
-        finder = { keys = { jump_to = "<CR>" } },
+        finder = { },
         definition = { edit = "<CR>" },
         symbol_in_winbar = { enable = false },
       })
