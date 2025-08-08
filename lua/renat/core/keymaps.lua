@@ -56,12 +56,12 @@ local ok, harpoon = pcall(require, "harpoon")
 if not ok then
   return
 end
-keymap.set("n", "<leader>a", function() harpoon:list():append() end, { desc = "Harpoon add file" })
-keymap.set("n", "<leader>h", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, { desc = "Harpoon menu" })
-keymap.set("n", "<leader>1", function() harpoon:list():select(1) end, { desc = "Harpoon file 1" })
-keymap.set("n", "<leader>2", function() harpoon:list():select(2) end, { desc = "Harpoon file 2" })
-keymap.set("n", "<leader>3", function() harpoon:list():select(3) end, { desc = "Harpoon file 3" })
-keymap.set("n", "<leader>4", function() harpoon:list():select(4) end, { desc = "Harpoon file 4" })
+keymap.set("n", "<leader>ha", function() harpoon:list():add() end, { desc = "Harpoon add file" })
+keymap.set("n", "<leader>hm", function() harpoon.ui:toggle_quick_menu(harpoon:list()) end, { desc = "Harpoon menu" })
+keymap.set("n", "<leader>hh", function() harpoon:list():select(1) end, { desc = "Harpoon file 1" })
+keymap.set("n", "<leader>ht", function() harpoon:list():select(2) end, { desc = "Harpoon file 2" })
+keymap.set("n", "<leader>hn", function() harpoon:list():select(3) end, { desc = "Harpoon file 3" })
+keymap.set("n", "<leader>hs", function() harpoon:list():select(4) end, { desc = "Harpoon file 4" })
 
 -- undotree
 keymap.set("n", "<leader>u", ":UndotreeToggle | UndotreeFocus<CR>")
