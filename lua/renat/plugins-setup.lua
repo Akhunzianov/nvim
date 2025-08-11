@@ -33,6 +33,9 @@ return packer.startup(function(use)
 
   use("bluz71/vim-nightfly-guicolors")
   use("VonHeikemen/little-wonder")
+  use("mulianov/molokai")
+  use("marko-cerovac/material.nvim")
+  use("scottmckendry/cyberdream.nvim")
 
   use("christoomey/vim-tmux-navigator") -- tmux & split window navigation
 
@@ -41,7 +44,6 @@ return packer.startup(function(use)
   -- essential plugins
   use("tpope/vim-surround") -- add, delete, change surroundings (it's awesome)
   use("inkarkat/vim-ReplaceWithRegister") -- replace with register contents using motion (gr + motion)
- 
   -- file explorer
   use("nvim-tree/nvim-tree.lua")
 
@@ -50,7 +52,6 @@ return packer.startup(function(use)
   -- commenting with gc
   use("numToStr/Comment.nvim")
 
- 
   -- statusline
   use("nvim-lualine/lualine.nvim")
 
@@ -68,10 +69,23 @@ return packer.startup(function(use)
   use("saadparwaiz1/cmp_luasnip") -- for autocompletion
   use("rafamadriz/friendly-snippets") -- useful snippets
 
+  -- flash
+  use {
+    "folke/flash.nvim",
+  }
+
   -- gitsigns
   use {
     "lewis6991/gitsigns.nvim",
     requires = { "nvim-lua/plenary.nvim" },
+  }
+
+  -- surround
+  use {
+    "kylechui/nvim-surround",
+    config = function()
+      require("nvim-surround").setup({})
+    end
   }
 
   -- git actions support

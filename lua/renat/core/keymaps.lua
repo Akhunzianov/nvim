@@ -47,6 +47,7 @@ keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>") -- find string in 
 keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>") -- find string under cursor in current working directory
 keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>") -- list open buffers in current neovim instance
 keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>") -- list available help tags
+keymap.set("n", "<leader>fm", "<cmd>Telescope marks<cr>") -- find marks in
 keymap.set("n", "<leader>fp", function()
   require("telescope.builtin").grep_string({ search = vim.fn.getreg('+') })
 end, { desc = "Search last yanked text" })
@@ -71,3 +72,10 @@ keymap.set("n", "<leader>gs", ":vertical Git<CR>")           -- Git status
 keymap.set("n", "<leader>gc", ":vertical Git commit<CR>")    -- Git commit
 keymap.set("n", "<leader>gd", ":Gvdiffsplit<CR>")    -- Git diff in split
 keymap.set("n", "<leader>gb", ":vertical Git branch | vertical resize 50<CR>")     -- Git blame
+
+-- flash
+keymap.set({ "n", "x", "o" }, "s", function() require("flash").jump() end, { desc = "Flash" })
+-- keymap.set({ "n", "x", "o" }, "S", function() require("flash").treesitter() end, { desc = "Flash Treesitter" })
+-- keymap.set("o", "r", function() require("flash").remote() end, { desc = "Flash remote" })
+-- keymap.set({ "o", "x" }, "R", function() require("flash").treesitter_search() end, { desc = "Flash TS search" })
+keymap.set("c", "<C-s>", function() require("flash").toggle() end, { desc = "Flash toggle" })
