@@ -75,7 +75,7 @@ keymap.set("n", "<leader>gb", ":vertical Git branch | vertical resize 50<CR>")  
 
 -- flash
 keymap.set({ "n", "x", "o" }, "s", function() require("flash").jump() end, { desc = "Flash" })
--- keymap.set({ "n", "x", "o" }, "S", function() require("flash").treesitter() end, { desc = "Flash Treesitter" })
--- keymap.set("o", "r", function() require("flash").remote() end, { desc = "Flash remote" })
--- keymap.set({ "o", "x" }, "R", function() require("flash").treesitter_search() end, { desc = "Flash TS search" })
+keymap.set({ "n", "x", "o" }, "S", function() require("flash").treesitter() end, { desc = "Flash Treesitter" })
+keymap.set("o", "r", function() require("flash").remote() end, { desc = "Flash remote" })
+keymap.set({ "o", "x" }, "R", function() require("flash").treesitter_search() end, { desc = "Flash TS search" })
 keymap.set("c", "<C-s>", function() require("flash").toggle() end, { desc = "Flash toggle" })

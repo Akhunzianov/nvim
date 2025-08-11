@@ -112,6 +112,21 @@ return packer.startup(function(use)
   -- treesitter
   use {
     "nvim-treesitter/nvim-treesitter",
+    event = "BufReadPre",                            -- load before reading the file
+    run = function()
+      require("nvim-treesitter.install").update({ with_sync = true })()
+    end,
+    config = function()
+      -- put your setup here so it runs when plugin loads
+      local ok, configs = pcall(require, "nvim-treesitter.configs")
+      if not ok then return end
+      configs.setup({
+        ensure_installed = { "cpp","c","lua","python","bash","json","vim","markdown","javascript","typescript","html","css","yaml" },
+        auto_install = true,
+        highlight = { enable = true, additional_vim_regex_highlighting = false },
+        indent = { enable = true },
+      })
+    end,
   }
 
   -- managing and installing lsp server
